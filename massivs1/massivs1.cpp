@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-
+	int sss;
 	int stroka;
 	int stolb;
 	cout << "Write number of strok :";
