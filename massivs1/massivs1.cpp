@@ -8,7 +8,6 @@ using namespace std;
 
 int main()
 {
-	int sss;
 	int stroka;
 	int stolb;
 	cout << "Write number of strok :";
@@ -53,18 +52,17 @@ int main()
 	int numbstring=0;//номер строки 
 	bool a = false;
 
-	for (int i = 0;i < stroka;i++)
+	for (int i = 0; i < stroka; i++)
+	{
+		int kolzeroinstring = 0; // количество нулей в строке
 
-	
-
-		for (int j = 0;j < stolb;j++)
+		for (int j = 0; j < stolb; j++)
 		{
-			int kolzeroinstring = 0;// количество нулей в строке
 
-			if (massiv[i][j] ==0)
+			if (massiv[i][j] == 0)
 			{
-				kolzeroinstring ++;
-				
+				kolzeroinstring++;
+
 				a = true;
 			}
 			if (kolzeroinstring > MaxNumZeros)
@@ -72,8 +70,11 @@ int main()
 				MaxNumZeros = kolzeroinstring;
 				numbstring = i;
 			}
-		
+
 		}
+
+	}
+
 	if (a == false)
 	{
 		cout << "No zero in matrix";
@@ -87,14 +88,32 @@ int main()
 	int summin;
 
 
-	for (int i = 0;i < stroka;i++)
+	int Count1 = stroka;
+	int Count2 = stroka;
+	int sum1 = 0;
+
+	for (int i = 0; i < Count2; i++)
+	{
+		Count1--;
+		Count2--;
+
+		for (int i = 0; i < Count2; i++)
+		{
+			Count1--;
+			sum1 += abs(massiv[i][Count1]);
+		}
+	}
+
+
+
+	for (int i = 0; i < stroka; i++)
 
 	{
 		int sum = 0;
 
-		for (int j = 0;j <= i;j++)
+		for (int j = stroka - 2; j >= 0; j--)
 		{
-			sum += abs(massiv[i - j][j]);
+			sum += abs(massiv[i][j]);
 			if ((i == 0) || (summin > sum))
 			{
 				summin = sum;
